@@ -15,7 +15,7 @@ public class Solucion {
     @Override
     public String toString() {
         return "Fitness: " + fitness +
-                " - Genotipo = " + Arrays.toString(valores) +"";
+                " - Genotipo = " + Arrays.toString(valores);
     }
 
     public int get(int i) {
