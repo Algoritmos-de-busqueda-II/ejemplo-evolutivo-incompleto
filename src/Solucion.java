@@ -1,6 +1,7 @@
 import java.util.Arrays;
 
-public class Solucion {
+public class Solucion implements Comparable<Solucion>{
+
     private int[] valores;
     private int fitness;
 
@@ -25,4 +26,17 @@ public class Solucion {
     public void setFitness(int valorFitness) {
         fitness = valorFitness;
     }
+
+    @Override
+    public int compareTo(Solucion o) {
+        // Maximizando para ordenar de mayor a menor valor de fitness
+        if (this.fitness < o.fitness) {
+            return 1;
+        }
+        if (this.fitness > o.fitness) {
+            return -1;
+        }
+        return 0;
+    }
+
 }

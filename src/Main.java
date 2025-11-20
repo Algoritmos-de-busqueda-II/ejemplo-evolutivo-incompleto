@@ -7,7 +7,7 @@ public class Main {
         // Parámetros del algoritmo
         int tamanioPoblacion = 20;
         long maxEvaluaciones = 1000;
-        boolean debug = false;
+        boolean debug = true;
         AlgoritmoEvolutivo algoritmo = new AlgoritmoEvolutivo(instancia,tamanioPoblacion,maxEvaluaciones,debug);
 
         Solucion bestSolution = algoritmo.run();
