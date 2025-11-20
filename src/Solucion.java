@@ -9,6 +9,15 @@ public class Solucion implements Comparable<Solucion>{
         this.valores = new int[n];
     }
 
+    // Constructor copia
+    public Solucion(Solucion solucion) {
+        this.fitness = solucion.fitness;
+        this.valores = new int[solucion.valores.length];
+        for (int i = 0; i < solucion.valores.length; i++) {
+            this.valores[i] = solucion.valores[i];
+        }
+    }
+
     public void put(int i, int valor) {
         valores[i] = valor;
     }
