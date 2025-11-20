@@ -6,10 +6,12 @@ public class AlgoritmoEvolutivo {
     final Instancia instancia;
     final int tamanioPoblacion;
     final boolean debug;
+    private final long maxEvaluaciones;
 
-    public AlgoritmoEvolutivo(Instancia instancia, int tamanioPoblacion, boolean debug) {
+    public AlgoritmoEvolutivo(Instancia instancia, int tamanioPoblacion, long maxEvaluaciones, boolean debug) {
         this.instancia = instancia;
         this.tamanioPoblacion = tamanioPoblacion;
+        this.maxEvaluaciones = maxEvaluaciones;
         this.debug = debug;
     }
 
@@ -19,7 +21,30 @@ public class AlgoritmoEvolutivo {
         Solucion best = evaluarPoblacion(poblacion);
         imprimePoblacion("Población inicial:",poblacion,debug);
 
-        // TODO: completar algoritmo
+        // Cálculo de número de generaciones: se quita la evaluación de la población inicial.
+        long generaciones = (maxEvaluaciones / tamanioPoblacion) - 1;
+        if (generaciones <= 0) {
+            System.out.println("Número de generaciones incorrecto: revisa el ratio maxEvaluaciones/tamanioPoblacion");
+            return best;
+        }
+
+        for (int i = 0; i < generaciones; i++) {
+            // TODO: completar algoritmo
+
+            // Selección de progenitores
+
+            // Operadores de variación
+            // -- Cruce de progenitores produce descendientes (offspring)
+            // -- Mutación en descendientes
+
+            // Evaluación de descendientes
+
+            // Actualización de best
+
+            // Reemplazo de población
+
+        }
+
 
         return best;
     }
