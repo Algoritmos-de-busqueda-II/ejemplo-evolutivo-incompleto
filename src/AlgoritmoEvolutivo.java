@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class AlgoritmoEvolutivo {
@@ -19,6 +20,7 @@ public class AlgoritmoEvolutivo {
     public Solucion run() {
         List<Solucion> poblacion = generarPoblacionInicial();
         Solucion best = evaluarPoblacion(poblacion);
+
         imprimePoblacion("Población inicial:",poblacion,debug);
 
         // Cálculo de número de generaciones: se quita la evaluación de la población inicial.
@@ -29,24 +31,54 @@ public class AlgoritmoEvolutivo {
         }
 
         for (int i = 0; i < generaciones; i++) {
-            // TODO: completar algoritmo
 
             // Selección de progenitores
+            List<Solucion> progenitores = seleccionProgenitores(poblacion);
 
             // Operadores de variación
             // -- Cruce de progenitores produce descendientes (offspring)
+            List<Solucion> offspring = cruce(progenitores);
             // -- Mutación en descendientes
+            mutacion(offspring);
 
             // Evaluación de descendientes
+            Solucion bestOffspring = evaluarPoblacion(offspring);
 
             // Actualización de best
+            if (bestOffspring.compareTo(best) < 0) {
+                best = bestOffspring;
+            }
 
             // Reemplazo de población
-
+            poblacion = reemplazo(poblacion,offspring);
         }
 
-
         return best;
+    }
+
+    private List<Solucion> seleccionProgenitores(List<Solucion> poblacion) {
+        // TODO: implementar método de selección
+        return poblacion;
+    }
+
+    private List<Solucion> cruce(List<Solucion> progenitores) {
+        List<Solucion> offspring = new ArrayList<>();
+
+        // TODO: implementar método de cruce
+        for  (int i = 0; i < progenitores.size(); i++) {
+            offspring.add(new Solucion(progenitores.get(i)));
+        }
+
+        return offspring;
+    }
+
+    private void mutacion(List<Solucion> offspring) {
+        // TODO: implementar mutación
+    }
+
+    private List<Solucion> reemplazo(List<Solucion> poblacion, List<Solucion> offspring) {
+        // TODO: implementar reemplazo
+        return offspring;
     }
 
     private void imprimePoblacion(String msg, List<Solucion> poblacion, boolean debug) {
